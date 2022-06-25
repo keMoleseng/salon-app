@@ -13,5 +13,24 @@ body {
 .App {
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+
+.heading{
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+}
+
+.description{
+    display: block;
+    font-size: 20px;
+    font-weight: 200;
+    width: 750px;
+    align-self: center;
+    justify-self: center;
+    font-family: 'Oswald', sans-serif;
+    
 }
 
