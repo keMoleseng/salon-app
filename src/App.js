@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Treatment from './components/Treatment';
 import Staff from './components/Staff';
 import About from './components/About';
+import ContactUs from './components/ContactUs';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Treatment />
         <Staff />
         <About />
+        <ContactUs />
     </div>
   );
 }

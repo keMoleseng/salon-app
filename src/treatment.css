@@ -1,6 +1,7 @@
 .treatments {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
     padding: 50px 25px;
     background-color: #cf9a78;
     margin-bottom: 0px;
@@ -27,13 +28,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
     margin-top: 35px;
+    padding: 50px;
 }
 
 .logo--container {
     border: 3px solid #ffffff;
-    padding: 60px 50px;
+    padding: 70px 85px;
 }
 
 .treatment--btn {

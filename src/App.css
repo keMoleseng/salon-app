@@ -16,21 +16,35 @@ body {
   text-align: center;
 }
 
+.about--container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: #cf9a78;
+}
+
 .heading{
-    margin-top: 50px;
-    font-size: 35px;
-    font-weight: 400;
-    font-family: 'Oswald', sans-serif;
+  position: absolute;
+  display: block;
+  margin-bottom: 450px;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
 }
 
 .description{
-    display: block;
+    position: absolute;
+    padding: 20px;
+    
     font-size: 20px;
     font-weight: 200;
     width: 750px;
-    align-self: center;
-    justify-self: center;
     font-family: 'Oswald', sans-serif;
+    color: #fff;
+    background-color: rgb(207, 154, 120, .5);
     
 }
 
