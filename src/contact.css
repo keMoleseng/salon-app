@@ -12,26 +12,89 @@
 form {
     display: grid;
     grid-template-columns: auto auto;
-    width: 500px;
-    gap: 35px 30px;
+    width: 450px;
+    gap: 30px 25px;
 }
 
 .name {
     grid-column-start: 1;
     grid-column-end: 2;
+    
 }
 
 .email {
     grid-column-start: 2;
     grid-column-end: 3;
+    
 }
 
 .textarea {
     grid-column-start: 1;
     grid-column-end: 3;
+    height: 50px;
+    border: none;
+    background-color: #ac9488;
+    opacity: 0.7;
+    height: 100px;
+    padding-left: 10px;
+    padding-top: 5px;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
 }
 
-.btn-submit {
-    grid-column-start: 1;
+.input-box {
+    border: none;
+    background-color: #ac9488;
+    opacity: 0.7;
+    height: 30px;
+    padding-left: 10px;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+}
+
+.input-box:focus, .textarea:focus {
+    outline: 0;
+    border-top: 2px solid black;
+}
+
+.input-box::placeholder, textarea::placeholder {
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+}
+
+.submit-btn {
+    grid-column-start: 2;
     grid-column-end: 3;
+    width: 100px;
+    height: 30px;
+    justify-self: end;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+
+    border: none;
+    background-color: #5a4c4c;
+    opacity: 0.8;
+    cursor: pointer;
+
+    color: blCK;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+
+
+}
+
+.submit-btn:focus {
+    border-top: 2px solid black;
 }

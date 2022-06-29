@@ -34,14 +34,14 @@ export default function ContactUs(){
                                     type="text" 
                                     name="user_name"
                                     placeholder='Name'
-                                    className='name'
+                                    className='name input-box'
                                     required
                                     />
                             <input 
                                     type="email"
                                     name="user_email"
                                     placeholder="Email"
-                                    className='email'
+                                    className='email input-box'
                                     required
                             />
                        
@@ -53,7 +53,7 @@ export default function ContactUs(){
                                     required
                         /> 
                         <button id ="btn" type='submit' className='submit-btn'>
-                            Send
+                            SEND
                         </button>
                     </form>
                 </span>
