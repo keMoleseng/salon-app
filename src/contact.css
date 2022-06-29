@@ -8,3 +8,30 @@
     font-family: 'Oswald', sans-serif;
     color: black;
 }
+
+form {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 500px;
+    gap: 35px 30px;
+}
+
+.name {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.email {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.textarea {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.btn-submit {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
