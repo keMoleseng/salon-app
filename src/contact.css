@@ -1,5 +1,6 @@
 .contact--container{
     margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 .contact--heading{
@@ -9,8 +10,56 @@
     color: black;
 }
 
+.contact--address-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.address--container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+
+.address--heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.pin {
+    margin-top: 15px;
+    margin-right: 5px;
+    font-size: 30px;
+    color: #5a4c4c;
+}
+
+.address--body {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-size: 15px;
+    text-align: start;
+}
+
+.brands--container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.brand {
+    font-size: 22px;
+    color: #5a4c4c;
+    cursor: pointer;
+}
+
 form {
     display: grid;
+    margin-right: 50px;
     grid-template-columns: auto auto;
     width: 450px;
     gap: 30px 25px;
@@ -87,7 +136,7 @@ form {
     opacity: 0.8;
     cursor: pointer;
 
-    color: blCK;
+    color: white;
     font-size: 14px;
     font-weight: 400;
     font-family: 'Oswald', sans-serif;
@@ -97,4 +146,8 @@ form {
 
 .submit-btn:focus {
     border-top: 2px solid black;
+}
+
+.footer--closing {
+    font-size: 13px;
 }

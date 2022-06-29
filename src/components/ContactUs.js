@@ -25,8 +25,24 @@ export default function ContactUs(){
     return(
         <div className="contact--container">
             <h1 className="contact--heading">Contact Us</h1>
-            <span>
-                <span className="address"></span>
+            <h2>We'd love to hear from you!</h2>
+            <span className='contact--address-form'>
+                <span className="address--container">
+                    <span className='address--heading'>
+                        <i className='fa-solid fa-map-pin pin' />
+                        <h3>Come Visit Us</h3>
+                    </span>
+                    <p className='address--body'>982 Lorem Ipsum Ave, LI</p>
+                    <p className='address--body'>Cape Town</p>
+                    <p className='address--body'>0083</p>
+                    <p className='address--body'>SOUTH AFRICA</p>
+                    <span className='brands--container'>
+                        <i className='fa-brands fa-pinterest brand' />
+                        <i className='fa-brands fa-instagram brand' />
+                        <i className='fa-brands fa-facebook brand' />
+                        <i className='fa-brands fa-twitter brand' />
+                    </span>
+                </span>
                 <span className="form--container">
                     <form ref={form} onSubmit={sendEmail}>
                         
@@ -58,6 +74,7 @@ export default function ContactUs(){
                     </form>
                 </span>
             </span>
+            <span className='footer--closing'> 2022 <i className='fa-solid fa-copyright' /> Trevor Sorbie. All Rights Reserved.</span>
         </div>
     )
 }
