@@ -8,7 +8,7 @@ const TREATMENTS = {
 }
 
 const logosImg = Object.keys(TREATMENTS).map((treatment, i) => {
-    return <div className="treatment--container">
+    return <div id="treatments" className="treatment--container">
                 <span className='logo--container'>
                     <img src={TREATMENTS[treatment]} 
                     key={i}

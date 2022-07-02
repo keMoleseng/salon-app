@@ -2,7 +2,7 @@ import "../hero.css";
 
 export default function Hero() {
     return (
-        <div className="hero--container">
+        <div id="#hero" className="hero--container">
             <div className="hero--image">
                 <img src="/image.jpg" width="650vw" height="auto" />
                 <div className="header--banner">

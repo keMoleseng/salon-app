@@ -23,7 +23,7 @@ export default function ContactUs(){
     };
 
     return(
-        <div className="contact--container">
+        <div id="contact_us" className="contact--container">
             <h1 className="contact--heading">Contact Us</h1>
             <h2>We'd love to hear from you!</h2>
             <span className='contact--address-form'>

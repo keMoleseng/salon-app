@@ -21,7 +21,7 @@
 .address--container {
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    margin-left: 80px;
 }
 
 
@@ -59,7 +59,7 @@
 
 form {
     display: grid;
-    margin-right: 50px;
+    margin-right: 80px;
     grid-template-columns: auto auto;
     width: 450px;
     gap: 30px 25px;

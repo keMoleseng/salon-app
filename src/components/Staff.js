@@ -21,7 +21,7 @@ const images = Object.keys(staff).map((item, i) => {
 
 export default function Staff() {
     return (
-        <div className='staff'>
+        <div id="our_staff" className='staff'>
             <h2>Meet Our Staff</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div className='allStaff'>

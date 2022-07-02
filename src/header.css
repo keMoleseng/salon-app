@@ -29,3 +29,14 @@
     font-weight: 300;
     font-family: 'Oswald', sans-serif;
 }
+
+li > a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+li > a:hover {
+    text-decoration-line: underline;
+    text-decoration-color: #ac9488;
+}
