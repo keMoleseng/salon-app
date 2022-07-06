@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading_container {
+    display: flex;
+    justify-content: center;
+
+    border-bottom: 0.1px solid #cf9a78;
+    width:100%;
+}
+
+.heading_container > .ownerName {
+    width: 50px;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav > .nav_item {
+    margin-right: 75px;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Oswald', sans-serif;
+}
+
+.nav_item > .nav_itemConnection {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.nav_item > .nav_itemConnection:hover {
+    text-decoration-line: underline;
+    text-decoration-color: #ac9488;
+}
