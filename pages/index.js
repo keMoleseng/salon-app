@@ -1,24 +1,24 @@
 import Head from "next/head";
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Treatment from '../components/Treatment';
 import Staff from '../components/Staff';
 import About from '../components/About';
-import ContactUs from '../components/ContactUs';
+
 
 
 function HomePage() {
   return (
-    <div className="App">
+    <div className="App" home>
         <Head>
             <title>Home - Trevor Sorbie</title>
-        </Head>
-        <Header />
+        </Head>   
+        <Navbar home />   
         <Hero />
         <Treatment />
         <Staff />
         <About />
-        <ContactUs />
+        
     </div>
   );
 }

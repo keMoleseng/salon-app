@@ -1,11 +1,10 @@
 import Link from 'next/link';
+import Navbar from '../components/Navbar';
 
 export default function Booking() {
     return (
     <div>
-        <h1>Book Here</h1>
-        <Link href='/'>
-            <a>Home</a>
-        </Link>
+        <Navbar />
+        <h1>STUFFS</h1>
     </div>)
 }
