@@ -1,5 +1,6 @@
 import styles from '../styles/treatment.module.css'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const TREATMENTS = {
     'Hair': '/hair_dryer (2).png',
@@ -18,7 +19,7 @@ const logosImg = Object.keys(TREATMENTS).map((treatment, i) => {
                         key={i}
                     />
                 </span>
-                <button className={styles.treatment_btn}>{treatment}</button>
+                <Link href="/booking" className={styles.treatment_btn}><a>{treatment}</a></Link>
             </div>
 })
 
