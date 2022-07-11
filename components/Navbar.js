@@ -19,16 +19,14 @@ export default function Navbar({home}) {
             )
             :
             (
-                <ul className={styles.nav} >
-                    <li>
-                        <Link href='/'>
+                <Link href='/'>
+                    <ul className={styles.nav} >
                         <li className={styles.nav_item}>
-                            <i className='fas fa-angle-double-left'/>
+                            <i className="fas fa-angle-double-left"/>
                             <a className={styles.nav_itemConnection}> Take Me Home</a>
                         </li>
-                        </Link>
-                    </li>
-                </ul>
+                    </ul>
+                </Link>
             )
         }
         </div>
