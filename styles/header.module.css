@@ -8,7 +8,6 @@
 .heading_container {
     display: flex;
     justify-content: center;
-
     border-bottom: 0.1px solid #cf9a78;
     width:100%;
 }
@@ -25,7 +24,7 @@
 
 .nav > .nav_item {
     margin-right: 75px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     font-family: 'Oswald', sans-serif;
 }
