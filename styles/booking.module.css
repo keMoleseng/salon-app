@@ -1,0 +1,12 @@
+.booking_container {
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.booking_form {
+    display: flex;
+    flex-direction: column;
+}
