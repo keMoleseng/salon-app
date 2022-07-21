@@ -24,6 +24,7 @@
     background-color: #5a4c4c;
     color: #fff;
     font-weight: 300;
+    border: 2px solid white;
 }
 
 .card_container > span:hover {

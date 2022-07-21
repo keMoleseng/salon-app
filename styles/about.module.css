@@ -8,14 +8,13 @@
     background-color: #cf9a78;
   }
   
-  .heading{
+  .heading {
     position: absolute;
-    display: block;
-    margin-bottom: 450px;
+    left: 200px;
     font-size: 35px;
     font-weight: 400;
     font-family: 'Oswald', sans-serif;
-    color: #fff;
+    color:aqua;
   }
   
   .description{

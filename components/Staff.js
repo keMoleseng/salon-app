@@ -13,7 +13,7 @@ const images = Object.keys(staff).map((item, i) => {
                     src={staff[item]}
                     key={i} 
                     width={350}
-                    height={200}
+                    height={300}
                 />
                 <h2 className={styles.subHeading}>{item}</h2>
             </div>
@@ -23,7 +23,7 @@ const images = Object.keys(staff).map((item, i) => {
 export default function Staff() {
     return (
         <div id="our_staff" className={styles.staff}>
-            <h2 className={styles.subHeading}>Meet Our Staff</h2>
+            <h2 className={styles.subHeading}>Meet Our Beauticians</h2>
             <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div className={styles.allStaff}>
                 {images}
