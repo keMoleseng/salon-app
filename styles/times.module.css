@@ -1,0 +1,29 @@
+.times_container {
+    display: flex;
+    flex-direction: column;  
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 1px solid #5a4c4c;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #5a4c4c;
+}
+
+.times_heading {
+    margin: 0px;
+}
+
+.times {
+    display: flex;
+    flex-direction: row;
+}
+
+.time {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: fit-content;
+    width: 55px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
