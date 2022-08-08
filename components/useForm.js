@@ -4,17 +4,22 @@ export function useForm(initialValues) {
     const [values, setValues] = useState(initialValues)
     const handleChange = (e) => {
         const { name, value } = e.target;
-
+        console.log(e)
         setValues({
           ...values,
           [name]: value
         })
       }
+    
+      const resetForm = () => {
+        setValues(initialValues)
+      }
 
     return {
         handleChange,
         values,
-        setValues
+        setValues,
+        resetForm
     }
 }
 

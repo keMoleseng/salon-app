@@ -15,7 +15,7 @@ export const getBeauticians = () => ([
     { id: '3', title: "Lerato" }
 ])
 
-const saveAppointment = (data) => {
+export function saveAppointment(data){
     const appointmentList = getAllAppointments();
     data['id'] = generateAppointmentId();
     appointmentList.push(data);
@@ -24,18 +24,18 @@ const saveAppointment = (data) => {
 
 
 
-const generateAppointmentId = () => {
+export function generateAppointmentId() {
     if(localStorage.getItem(KEYS.appointmentId) === null) 
         localStorage.setItem(KEYS.appointmentId, '0');
     
-        var id = parse(localStorage.getItem(KEYS.appointmentId), 10);
+        var id = parseInt(localStorage.getItem(KEYS.appointmentId), 10);
         localStorage.setItem(KEYS.appointmentId, ((++id).toString()))
         return id;
 }
 
-const getAllAppointments = () => {
+export function getAllAppointments() {
     if (localStorage.getItem(KEYS.appointment) === null) 
         return localStorage.setItem(KEYS.appointment, JSON.stringify([])); 
     else
-        return JSON.parse(localStorage.geItem(KEYS.appointment));
+        return JSON.parse(localStorage.getItem(KEYS.appointment));
 }
