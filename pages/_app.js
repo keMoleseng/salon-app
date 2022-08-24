@@ -1,6 +1,6 @@
 import Head from "next/head";
 import ContactUs from "../components/ContactUs";
-import "../styles/global.css"
+import "../styles/global.css";
 
 export default function MyApp({ Component, pageProps }) {
     return (

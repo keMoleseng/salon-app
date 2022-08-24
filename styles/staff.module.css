@@ -8,8 +8,18 @@
     margin-top: 45px;
 }
 
+.staff_container {
+    cursor: pointer;
+}
 .staff_img {
     border-radius: 50%;
+}
+.staff_img:hover, .staff_img:active {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+   
+    
 }
 
 .staff > .subHeading {
