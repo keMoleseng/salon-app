@@ -15,8 +15,8 @@
     margin-bottom: 80px;
     margin-left: 65px;
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: column;
+    align-items: center;
 }
 
 .header_banner > .heading {
@@ -26,9 +26,8 @@
     color: #fff;
 }
 
-.header--banner > .banner_body {
-    margin-top: 230px;
-    margin-bottom: 0px;
+.header_banner > .banner_body {
+    
     width: 500px;
 
     font-size: 20px;

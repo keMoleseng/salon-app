@@ -10,11 +10,12 @@
   
   .heading {
     position: absolute;
-    left: 200px;
+    margin-bottom: 450px;
     font-size: 35px;
     font-weight: 400;
     font-family: 'Oswald', sans-serif;
-    color:aqua;
+    color: white;
+    z-index: 999;
   }
   
   .description{
@@ -27,7 +28,7 @@
       font-family: 'Oswald', sans-serif;
       color: #fff;
       background-color: rgb(207, 154, 120, .5);
-      
+      z-index: 999;
   }
   
   

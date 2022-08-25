@@ -1,9 +1,29 @@
 .booking_container {
     margin-top: 50px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.booking_button {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    width: 150px;
+    background-color: black;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    color: snow;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
 }
 
 .times_container {
@@ -25,6 +45,7 @@
     flex-direction: row;
 }
 
+
 .time {
     margin-top: 10px;
     margin-left: 5px;
@@ -40,7 +61,17 @@
     font-weight: 600;
 }
 
-.input_select {
+.times >button:hover {
+    background-color: black;
+    color: snow;
+}
+
+.times >button:active {
+    background-color: black;
+    color: snow;
+}
+
+/* .input_select {
     margin-top: 5px;
     height: fit-content;
     width: auto;
@@ -53,4 +84,4 @@
     font-family: 'Oswald', sans-serif;
     font-size: 15px;
     font-weight: 400;
-}
+} */
