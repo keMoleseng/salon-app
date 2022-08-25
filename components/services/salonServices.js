@@ -3,18 +3,6 @@ const KEYS = {
     appointmentId: 'appointmentId'
 }
 
-export const getTreatments = () => ([
-    { id: '1', title: "Hair" },
-    { id: '2', title: "MakeUp" },
-    { id: '3', title: "Spa"}
-])
-
-export const getBeauticians = () => ([
-    { id: '1', title: "Lebo" },
-    { id: '2', title: "Lucy" },
-    { id: '3', title: "Lerato" }
-])
-
 export function saveAppointment(data){
     const appointmentList = getAllAppointments();
     data['id'] = generateAppointmentId();
@@ -35,7 +23,15 @@ export function generateAppointmentId() {
 
 export function getAllAppointments() {
     if (localStorage.getItem(KEYS.appointment) === null) 
-        return localStorage.setItem(KEYS.appointment, JSON.stringify([])); 
-    else
+        localStorage.setItem(KEYS.appointment, JSON.stringify([])); 
         return JSON.parse(localStorage.getItem(KEYS.appointment));
+}
+
+export function checkAvailTime(data, day, timeState) {
+    let currentAppointments = getAllAppointments();
+
+    for(let currentAppointment of currentAppointments){
+        if(currentAppointment.time === data.time && new Date(currentAppointment.date) === day)
+            timeState.showTime = false
+    }
 }
