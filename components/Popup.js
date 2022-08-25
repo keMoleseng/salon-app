@@ -16,10 +16,10 @@ const Box = styled.div`
     height: auto;
     max-height: 70vh;
     margin-top: calc(100vh - 85vh - 20px);
-    background: #fff;
+    background: snow;
     border-radius: 4px;
     padding: 20px;
-    border: 1px solid #999;
+    border: 2px solid #cf9a78;
     overflow: auto;
 `
 
@@ -29,14 +29,14 @@ const Span = styled.span`
     position: fixed;
     right: calc(15% - 30px);
     top: calc(100vh - 85vh - 33px);
-    background: #ededed;
+    background: #ff605c;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     line-height: 20px;
     text-align: center;
-    border: 1px solid #999;
-    font-size: 20px;
+    
+    font-size: 15px;
 `
 
 export default function Popup(props) {
