@@ -9,13 +9,14 @@ import { useState } from 'react';
 import styles from '../styles/staff.module.css';
 import Popup from '../components/Popup';
 
+
 const initialValues = {
     date: new Date(),
     time: '',
     name: '',
     email: '',
     beautician: '',
-    treatment: 'makeup'
+    treatment: 'spa'
 }
 
 const staff = {
@@ -84,7 +85,7 @@ const FormContainer = styled.div`
     width: 100%
 `
 
-export default function MakeUp() {
+export default function Spa() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
     const [popupValues, setPopupValues] = useState(null)
@@ -133,61 +134,60 @@ export default function MakeUp() {
         togglePopup();
         resetForm()
     }
-
-    return(
+    return (
         <Container>
             <Navbar />
-            <h1 className={styles.subHeading}>Make-Up</h1>
-            <p className={styles.description} >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat est. Mauris gravida erat massa, et feugiat augue tempor eget.</p>
             <Div>
+                <h1 className={styles.subHeading}>The Spa</h1>
+                <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat est. Mauris gravida erat massa, et feugiat augue tempor eget.</p>
                 <Image 
-                    src="/makeupimage.jpg"
+                    src="/spaimage.jpg"
                     alt=""
-                    width={850}
+                    width={950}
                     height={450}
                 />
                 <h2>Book an Appointment</h2>
             
-                <Form onSubmit={handleSubmit}>
-                    <FormContainer>
-                    <label>Pick a date</label>
-                    <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder={'Select date'} value={values.date}/>
-                   
-                    <h4>AVAILABLE SLOT</h4>
-                    <TimesContainer>
-                        {times.map(time => (
-                            <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>{time}</TimesSpan>
-                        ))}
-                    </TimesContainer>
-                    <RowDiv>
-                        <Controls.Input 
-                            text='Name'
-                            name='name'
-                            placeholder='Enter your name...'
-                            value={values.name}
-                            onChange={handleChange}
-                        />
-                        <Controls.Input 
-                            text='Email'
-                            name='email'
-                            placeholder='Enter your email...'
-                            value={values.email}
-                            onChange={handleChange}
-                        />
-                    </RowDiv>
-                    <h4>Select Beautician</h4>
-                    <RowDiv>{stylistSelect}</RowDiv>
-                    <Controls.FormButton type='submit' text='Confirm Booking' primary/>
-                    <Controls.FormButton type='reset' text='Reset Form'  />
-                    {isOpen && 
-                    <Popup 
-                        content={<>
-                            <p>Your appointment with {popupValues.beautician} is confirmed for {popupValues.date.toDateString()} at {popupValues.time}!</p>
-                        </>}
-                        onClick={togglePopup}
+            <Form onSubmit={handleSubmit}>
+                <FormContainer>
+                <label>Pick a date</label>
+                <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder='Select date' value={values.date}/>
+               
+                <h4>AVAILABLE SLOT</h4>
+                <TimesContainer>
+                    {times.map(time => (
+                        <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>{time}</TimesSpan>
+                    ))}
+                </TimesContainer>
+                <RowDiv>
+                    <Controls.Input 
+                        text='Name'
+                        name='name'
+                        placeholder='Enter your name...'
+                        value={values.name}
+                        onChange={handleChange}
                     />
-                    }
-                    </FormContainer>
+                    <Controls.Input 
+                        text='Email'
+                        name='email'
+                        placeholder='Enter your email...'
+                        value={values.email}
+                        onChange={handleChange}
+                    />
+                </RowDiv>
+                <h4>Select Beautician</h4>
+                <RowDiv>{stylistSelect}</RowDiv>
+                <Controls.FormButton type='submit' text='Confirm Booking' primary/>
+                <Controls.FormButton type='reset' text='Reset Form'  />
+                {isOpen && 
+                <Popup 
+                    content={<>
+                        <p>Your appointment with {popupValues.beautician} is confirmed for {popupValues.date.toDateString()} at {popupValues.time}!</p>
+                    </>}
+                    onClick={togglePopup}
+                />
+                }
+                </FormContainer>
                 </Form>
             </Div>
         </Container>
