@@ -1,12 +1,12 @@
 import Input from "./Input";
 import Select from "./Select";
-import Button from "./Button";
+import LinkButton from "./LinkButton";
 import FormButton from "./FormButton";
 
 const Controls = {
     Input,
     Select,
-    Button, 
+    LinkButton, 
     FormButton
 }
 

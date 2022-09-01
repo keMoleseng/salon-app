@@ -5,10 +5,10 @@ import emailjs from '@emailjs/browser';
 export default function ContactUs(){
     const form = useRef();
 
-    const SERVICE_ID = 'service_x3aurgm';
+    const SERVICE_ID = 'service_qr6wjnq';
     const TEMPLATE_ID = 'template_1t9bxim';
     const PUBLIC_KEY = 'krMgm_CqfiR1Q8z8N';
-
+    console.log(form.current)
     const sendEmail = (e) => {
         e.preventDefault();
 
@@ -64,11 +64,10 @@ export default function ContactUs(){
                         <textarea id="opinion"
                                     name="message"
                                     placeholder='Message'
-                                    form='contactUs'
                                     className={styles.textarea}
                                     required
                         /> 
-                        <button id ="btn" type='submit' className={styles.submit_btn}>
+                        <button id ="btn" type='submit' className={styles.submit_btn} value='Send'>
                             SEND
                         </button>
                     </form>

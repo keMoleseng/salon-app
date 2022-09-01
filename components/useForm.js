@@ -1,10 +1,9 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 
 export function useForm(initialValues) {
-    const [values, setValues] = useState(initialValues)
+    const [values, setValues] = useState(initialValues);
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(e)
         setValues({
           ...values,
           [name]: value
