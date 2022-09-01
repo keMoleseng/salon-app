@@ -27,11 +27,12 @@ export function getAllAppointments() {
         return JSON.parse(localStorage.getItem(KEYS.appointment));
 }
 
-export function checkAvailTime(data, day, timeState) {
+export function checkAvailTime(date, time) {
     let currentAppointments = getAllAppointments();
 
-    for(let currentAppointment of currentAppointments){
-        if(currentAppointment.time === data.time && new Date(currentAppointment.date) === day)
-            timeState.showTime = false
+    for (const appointment of currentAppointments) {
+        if(new Date(appointment.date).toDateString() === new Date(date).toDateString() && appointment.time === time)
+        return true;
+        else return false;
     }
 }
