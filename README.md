@@ -1,4 +1,5 @@
 # Salon Appointment Booking Web App
+Website for a salon that can handle appointment booking.
 
 ## General Info
 This project is a complete website for a salon that handles booking for a salon. You can book a hair, spa or makeup appointment.
