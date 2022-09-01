@@ -9,6 +9,7 @@ import { useState } from 'react';
 import styles from '../styles/staff.module.css';
 import Popup from '../components/Popup';
 
+
 const initialValues = {
     date: new Date(),
     time: '',
@@ -87,15 +88,14 @@ const FormContainer = styled.div`
 export default function MakeUp() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
-    const [popupValues, setPopupValues] = useState(null)
+    const [popupValues, setPopupValues] = useState(null);
 
     const {
         handleChange,
         values,
         setValues,
         resetForm
-    } = useForm(initialValues)
-    console.log(values)
+    } = useForm(initialValues);
 
     const convertToDefaultPara = (name, value) => ({
         target: {   
@@ -125,13 +125,15 @@ export default function MakeUp() {
             time: values.time
         })
     }
-    console.log(isOpen)
+    
     const handleSubmit = e => {
         e.preventDefault();
         
         salonServices.saveAppointment(values);
         togglePopup();
-        resetForm()
+        resetForm();
+
+        
     }
 
     return(
@@ -151,18 +153,23 @@ export default function MakeUp() {
                 <Form onSubmit={handleSubmit}>
                     <FormContainer>
                     <label>Pick a date</label>
-                    <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder={'Select date'} value={values.date}/>
-                   
+                    <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}} placeholder={'Select date'} value={values.date} name={values.date}/>
+                    {console.log(date)}
                     <h4>AVAILABLE SLOT</h4>
                     <TimesContainer>
                         {times.map(time => (
-                            <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>{time}</TimesSpan>
+                            salonServices.checkAvailTime(startDate, time) ?
+                            null
+                            :
+                            <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
+                                {time}
+                            </TimesSpan>
                         ))}
                     </TimesContainer>
                     <RowDiv>
                         <Controls.Input 
                             text='Name'
-                            name='name'
+                            name="name"
                             placeholder='Enter your name...'
                             value={values.name}
                             onChange={handleChange}

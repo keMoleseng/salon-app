@@ -88,7 +88,8 @@ const FormContainer = styled.div`
 export default function Hair() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
-    const [popupValues, setPopupValues] = useState(null)
+    const [popupValues, setPopupValues] = useState(null);
+    // const [appointmentAvail, setAppointmentAvail] = useState(salonServices.checkAvailTime())
 
     const {
         handleChange,
@@ -96,7 +97,7 @@ export default function Hair() {
         setValues,
         resetForm
     } = useForm(initialValues)
-    console.log(values)
+   
 
     const convertToDefaultPara = (name, value) => ({
         target: {   
@@ -126,7 +127,7 @@ export default function Hair() {
             time: values.time
         })
     }
-    console.log(isOpen)
+    
     const handleSubmit = e => {
         e.preventDefault();
         
@@ -151,11 +152,17 @@ export default function Hair() {
                     <FormContainer>
                         <label>Pick a date</label>
                         <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder='Select date' value={values.date}/>
-                    
+                        {console.log(startDate)}
                         <h4>AVAILABLE SLOT</h4>
                         <TimesContainer>
                             {times.map(time => (
-                                <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>{time}</TimesSpan>
+                                salonServices.checkAvailTime(startDate, time) ?
+                                null
+                                :
+                                <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
+                                   {time}
+                                </TimesSpan>
+
                             ))}
                         </TimesContainer>
                         <RowDiv>
