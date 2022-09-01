@@ -12,7 +12,12 @@ const Button = styled.button`
     border-radius: 3px;
     background: transparent;
     width: auto;
-    cursor: pointer
+    cursor: pointer;
+
+    &:hover {
+        color: #cf9a78;
+        background-color: white;
+    }
 `
 
 export default function Hero() {

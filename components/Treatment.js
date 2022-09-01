@@ -1,26 +1,28 @@
 import styles from '../styles/treatment.module.css'
 import Image from 'next/image';
-import Link from 'next/link';
+import Controls from './control/Controls';
 
-const TREATMENTS = {
-    'Hair': '/hair_dryer (2).png',
-    'Make Up': '/kiss.png',
-    'Spa':'/cloud (1).png'
-}
+const TREATMENTS = [
+    { treatment: 'Hair', img: '/hair_dryer (2).png', link: '/hair' },
+    { treatment: 'Make Up', img: '/kiss.png', link: '/makeup' },
+    { treatment: 'Spa', img: '/cloud (1).png', link: '/spa' }
+]
 
-const logosImg = Object.keys(TREATMENTS).map((treatment, i) => {
-    return <div id="treatments" className={styles.treatment_container}>
-                <span className={styles.logo_container}>
+const logosImg = TREATMENTS.map((treatment, i) => {
+    return (<div id="treatments" className={styles.treatment_container}>
+                <span className={styles.logo_container} key={i}>
                     <Image 
-                        src={TREATMENTS[treatment]} 
+                        src={treatment.img} 
                         alt="Treatments logo"
-                        width={90}
-                        height={90}
-                        key={i}
+                        width={85}
+                        height={85}   
                     />
                 </span>
-                <Link href="/booking" className={styles.treatment_btn}><a>{treatment}</a></Link>
-            </div>
+                <Controls.LinkButton
+                    href={treatment.link}
+                    text={treatment.treatment}
+                />
+            </div>)
 })
 
 export default function Treatment() {
