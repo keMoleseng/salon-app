@@ -154,13 +154,10 @@ export default function MakeUp() {
                     <FormContainer>
                     <label>Pick a date</label>
                     <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}} placeholder={'Select date'} value={values.date} name={values.date}/>
-                    {console.log(date)}
+                    
                     <h4>AVAILABLE SLOT</h4>
                     <TimesContainer>
-                        {times.map(time => (
-                            salonServices.checkAvailTime(startDate, time) ?
-                            null
-                            :
+                        {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
                             <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
                                 {time}
                             </TimesSpan>

@@ -155,14 +155,11 @@ export default function Spa() {
                
                 <h4>AVAILABLE SLOT</h4>
                 <TimesContainer>
-                    {times.map(time => (
-                        salonServices.checkAvailTime(startDate, time) ?
-                        null
-                        :
-                        <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
-                            {time}
-                        </TimesSpan>
-                    ))}
+                        {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
+                            <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
+                                {time}
+                            </TimesSpan>
+                        ))}
                 </TimesContainer>
                 <RowDiv>
                     <Controls.Input 

@@ -9,7 +9,7 @@ const Button = styled.button`
     border: 2px solid #cf9a78;
     border-radius: 3px;
     background: ${ props => props.primary ? '#cf9a78' : 'transparent'};
-    width: 25%;
+    width: auto;
     cursor: pointer;
 
     &:hover {
