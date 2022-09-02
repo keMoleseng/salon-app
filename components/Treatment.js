@@ -9,7 +9,7 @@ const TREATMENTS = [
 ]
 
 const logosImg = TREATMENTS.map((treatment, i) => {
-    return (<div id="treatments" className={styles.treatment_container}>
+    return (<div className={styles.treatment_container}>
                 <span className={styles.logo_container} key={i}>
                     <Image 
                         src={treatment.img} 
@@ -27,8 +27,8 @@ const logosImg = TREATMENTS.map((treatment, i) => {
 
 export default function Treatment() {
     return (
-        <div className={styles.treatments}>
-            <h2 className={styles.subHeading} >Our Treatments</h2>
+        <div id="treatments" className={styles.treatments}>
+            <h2 className={styles.subHeading} >Choose a Treatment</h2>
             <span className={styles.all_treatments}>
                 {logosImg}
             </span>

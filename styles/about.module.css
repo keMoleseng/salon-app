@@ -30,5 +30,22 @@
       background-color: rgb(207, 154, 120, .5);
       z-index: 999;
   }
+
+  @media screen and (max-width: 600px)  {
+    .about_container {
+      width: 100%;
+    }
+
+    .heading {
+     margin-bottom: 290px;
+     
+    }
+
+    .description {
+      text-align: center;
+      width: auto;
+      font-size: 1rem;
+    }
+  }
   
   

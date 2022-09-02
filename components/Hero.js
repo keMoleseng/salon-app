@@ -24,16 +24,18 @@ export default function Hero() {
     return (
         <div id="#hero" className={styles.hero_container}>
             <div className={styles.hero_image}>
-                <Image 
-                    src="/image.jpg"
-                    alt=""
-                    width={650}
-                    height={200}
+                <div className={styles.intro_img}>
+                    <Image 
+                        src="/image.jpg"
+                        alt=""
+                        layout="fill"
+                        className={'image'}
                     />
+                </div>
                 <div className={styles.header_banner} >
                     <p className={styles.heading}>BEAUTY & HAIR</p>
                     <p className={styles.banner_body}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat est. Mauris gravida erat massa, et feugiat augue tempor eget.</p>  
-                    <a href="#treatments"><Button type='button' >Treatments</Button></a>
+                    <a href="#treatments"><Button type='button' >BOOK NOW</Button></a>
                 </div>
             </div>
             <div className={styles.hero_description}>

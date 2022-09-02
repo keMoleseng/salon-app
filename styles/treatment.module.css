@@ -52,3 +52,18 @@
 
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+
+    .all_treatments{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 35px;
+        padding: 50px;
+    }
+
+    .logo_container {
+        padding: 50px 65px;
+    }
+}

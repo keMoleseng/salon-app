@@ -11,6 +11,18 @@
     background-color: #cf9a78;
 }
 
+.intro_img {
+    width: 100vh;
+    height: 75vh;
+    position: relative; 
+}
+
+.intro_img .image {  
+        width: 50%;
+        height: 50%;
+}
+
+
 .header_banner {
     margin-bottom: 80px;
     margin-left: 65px;
@@ -62,4 +74,44 @@
     font-family: 'Oswald', sans-serif;
 
     color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .header_banner {
+        width: 100%;
+        margin: 0;
+    }
+
+   .hero_image {
+        flex-direction: column;
+   }
+
+   .intro_img {
+        width: 75vh;
+        height: 75vh;
+        position: relative; 
+    }
+
+    .intro_img .image {  
+        width: 50%;
+        height: 50%;
+    }
+
+    .heading {
+        text-align: center;
+    }
+
+    .header_banner > .banner_body {
+        font-size: 1.05rem;
+        width: auto;
+    }
+
+    .hero_description {
+        margin: 0;
+        width: 100%;
+    }
+
+    .description_body {
+        font-size: 1rem;
+    }
 }

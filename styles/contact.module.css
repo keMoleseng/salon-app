@@ -151,3 +151,36 @@
 .footer_closing {
     font-size: 13px;
 }
+
+.linkedIn {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .contact_address_form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .brands_container {
+        flex-direction: column;
+    }
+
+    .brand {
+        padding: 5px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+    .footer_closing {
+        font-size: 0.7rem;;
+    }
+}
