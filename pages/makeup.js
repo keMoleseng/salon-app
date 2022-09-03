@@ -43,8 +43,10 @@ const RowDiv = styled.div`
     flex-direction: row;
     justify-content: space-around;
     width: 95%;
-    margin-top: 20px
-    
+    margin-top: 20px;  
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
 `
 
 const TimesSpan = styled.span`
@@ -80,6 +82,9 @@ const TimesContainer = styled.span`
     justify-self: center;
     width: 100%;
     font-family: 'Oswald', sans-serif;
+    @media screen and (max-width: 600px) {
+        flex-wrap: wrap;
+    }
 `
 const FormContainer = styled.div`
     width: 100%
