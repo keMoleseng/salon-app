@@ -46,3 +46,9 @@
     font-weight: 300;
     font-family: 'Oswald', sans-serif;
 }
+
+@media screen and (max-width: 600px){
+    .allStaff {
+        flex-direction: column;
+    }
+}

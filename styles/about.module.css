@@ -37,14 +37,15 @@
     }
 
     .heading {
-     margin-bottom: 290px;
+     margin-bottom: 250px;
      
     }
 
     .description {
       text-align: center;
       width: auto;
-      font-size: 1rem;
+      font-size: 0.9rem;
+
     }
   }
   
