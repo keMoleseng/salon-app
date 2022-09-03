@@ -35,6 +35,7 @@ const HeadingContainer = styled.div`
     justify-content: center;
     border-bottom: 0.1px solid #cf9a78;
     width:100%;
+    
     @media screen and (max-width: 600px) {
         padding: 0;
         margin: 0;
@@ -49,6 +50,7 @@ const HeadingContainer = styled.div`
             padding-top: 0;
             margin-left: auto;
         }
+
     }
 `
 
@@ -58,7 +60,7 @@ export default function Navbar({home}) {
     return(
         <Header className={styles.header}>
             <HeadingContainer className={styles.heading_container}>
-                <h1 className={styles.ownerName}>Trevor Sorbie</h1>
+                <h1 className={styles.ownerName}><Link href='/'><a className={styles.link}> Trevor Sorbie</a></Link></h1>
                 <Button onClick={() => setShow(!show)}>
                         <i className='fas fa-bars'></i>
                 </Button>

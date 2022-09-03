@@ -12,7 +12,14 @@
     width:100%;
 }
 
-.heading_container > .ownerName {
+/* .heading_container > .ownerName {
+    width: 50px;
+} */
+
+.ownerName > .link {
+    display: block;
+    text-decoration: none;
+    color: black;
     width: 50px;
 }
 
