@@ -11,7 +11,7 @@ export default function ValidityMsg(props){
 }
 
 const Container = styled.div`
-    border: 1.5px solid #cf9a78;
+    border: 2px solid #cf9a78;
     background-color: white;
     height: 20px;
     display: flex;
@@ -19,8 +19,14 @@ const Container = styled.div`
     align-items: center;
     margin-top: 5px;
     padding: 0 10px;
+    @media screen and (max-width: 600px) {
+        width: fit-content;
+        align-self: center;
+        padding: 0 15px;
+    }
 `
 
 const Text = styled.text`
     font-size: 0.8rem;
+    
 `
