@@ -5,10 +5,10 @@ import Controls from '../components/control/Controls';
 import styled from 'styled-components';
 import * as salonServices from '../components/services/salonServices';
 import DatePicker from 'react-datepicker';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from '../styles/staff.module.css';
 import Popup from '../components/Popup';
-
+import ValidationMsg from '../components/ValidationMsg';
 
 const initialValues = {
     date: new Date(),
@@ -26,6 +26,144 @@ const staff = {
 };
 
 const times = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+
+export default function Hair() {
+    const [startDate, setStartDate] = useState(new Date());
+    const [isOpen, setIsOpen] = useState(false);
+    const [popupValues, setPopupValues] = useState(null);
+    const [error, setError] = useState("");
+    const [invalid, setInvalid] = useState(false);
+
+    const validate = () => {
+        let text = {};
+
+        text.name = values.name.length === 0 ? "This field cannot be empty." : "";
+        text.email = values.email.length === 0 ? "This field cannot be empty." : "";
+
+        setError({
+            ...text
+        })
+        
+        return Object.values(text).every(x => x === '')
+    }
+
+    const {
+        handleChange,
+        values,
+        setValues,
+        resetForm
+    } = useForm(initialValues)
+   
+
+    const convertToDefaultPara = (name, value) => ({
+        target: {   
+            name, 
+            value
+        }
+    })
+
+    const stylistSelect = Object.keys(staff).map((x, i) => (
+        <div className={styles.staff_container} name='beautician' value={values.beautician} onClick={e => handleChange(convertToDefaultPara('beautician', e.target.id))}>
+           <Image
+           className={styles.staff_img} 
+               src={staff[x]}
+               key={x} 
+               id={x}
+               width={150}
+               height={150}
+           />
+           <p>{x}</p>
+       </div>
+))
+    const togglePopup = () => {
+        setIsOpen(!isOpen)
+        setPopupValues({
+            beautician: values.beautician,
+            date: values.date,
+            time: values.time
+        })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        
+        if(validate()) {
+            salonServices.saveAppointment(values);
+            togglePopup();
+            resetForm();
+            setInvalid(false);
+        }
+        else {
+            setInvalid(true);
+        }
+    }
+
+    return(
+        <Container>
+            <Navbar />
+            <Div>
+                <h1 className={styles.subHeading}>Hair</h1>
+                <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat est. Mauris gravida erat massa, et feugiat augue tempor eget.</p>
+                <Image 
+                    src="/hairimage.jpg"
+                    alt=""
+                    width={950}
+                    height={500}
+                />
+                <h2>Book an Appointment</h2>
+                <Form onSubmit={handleSubmit}>
+                    <FormContainer>
+                        <label>Pick a date</label>
+                        <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder='Select date' value={values.date}/>
+                       
+                        <h4>AVAILABLE SLOT</h4>
+                        <TimesContainer>
+                            {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
+                                <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
+                                    {time}
+                                </TimesSpan>
+                            ))}
+                        </TimesContainer>
+                        <RowDiv>
+                            <ColumnDiv>
+                                <Controls.Input 
+                                    text='Name'
+                                    name='name'
+                                    placeholder='Enter your name...'
+                                    value={values.name}
+                                    onChange={handleChange}
+                                />
+                                { invalid && error.name ? <ValidationMsg error={error.name} /> : "" }
+                             </ColumnDiv>
+                             <ColumnDiv>
+                                <Controls.Input 
+                                    text='Email'
+                                    name='email'
+                                    placeholder='Enter your email...'
+                                    value={values.email}
+                                    onChange={handleChange}
+                                />
+                                 { invalid && error.email ? <ValidationMsg error={error.email} /> : ""}
+                            </ColumnDiv>
+                        </RowDiv>
+                        <h4>Select Beautician</h4>
+                        <RowDiv>{stylistSelect}</RowDiv>
+                        <Controls.FormButton type='submit' text='Confirm Booking' primary/>
+                        <Controls.FormButton type='reset' text='Reset Form'  />
+                        {isOpen && 
+                        <Popup 
+                            content={<>
+                                <p>Your appointment with {popupValues.beautician} is confirmed for {popupValues.date.toDateString()} at {popupValues.time}!</p>
+                            </>}
+                            onClick={togglePopup}
+                        />
+                        }
+                    </FormContainer>
+                </Form>
+            </Div>
+        </Container>
+    )
+}
 
 
 const Container = styled.span`
@@ -91,112 +229,7 @@ const FormContainer = styled.div`
     width: 100%
 `
 
-export default function Hair() {
-    const [startDate, setStartDate] = useState(new Date());
-    const [isOpen, setIsOpen] = useState(false);
-    const [popupValues, setPopupValues] = useState(null);
-
-    const {
-        handleChange,
-        values,
-        setValues,
-        resetForm
-    } = useForm(initialValues)
-   
-
-    const convertToDefaultPara = (name, value) => ({
-        target: {   
-            name, 
-            value
-        }
-    })
-
-    const stylistSelect = Object.keys(staff).map((x, i) => (
-        <div className={styles.staff_container} name='beautician' value={values.beautician} onClick={e => handleChange(convertToDefaultPara('beautician', e.target.id))}>
-           <Image
-           className={styles.staff_img} 
-               src={staff[x]}
-               key={x} 
-               id={x}
-               width={150}
-               height={150}
-           />
-           <p>{x}</p>
-       </div>
-))
-    const togglePopup = () => {
-        setIsOpen(!isOpen)
-        setPopupValues({
-            beautician: values.beautician,
-            date: values.date,
-            time: values.time
-        })
-    }
-    
-    const handleSubmit = e => {
-        e.preventDefault();
-        
-        salonServices.saveAppointment(values);
-        togglePopup();
-        resetForm()
-    }
-    return(
-        <Container>
-            <Navbar />
-            <Div>
-                <h1 className={styles.subHeading}>Hair</h1>
-                <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut placerat est. Mauris gravida erat massa, et feugiat augue tempor eget.</p>
-                <Image 
-                    src="/hairimage.jpg"
-                    alt=""
-                    width={950}
-                    height={500}
-                />
-                <h2>Book an Appointment</h2>
-                <Form onSubmit={handleSubmit}>
-                    <FormContainer>
-                        <label>Pick a date</label>
-                        <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder='Select date' value={values.date}/>
-                       
-                        <h4>AVAILABLE SLOT</h4>
-                        <TimesContainer>
-                            {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
-                                <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
-                                    {time}
-                                </TimesSpan>
-                            ))}
-                        </TimesContainer>
-                        <RowDiv>
-                            <Controls.Input 
-                                text='Name'
-                                name='name'
-                                placeholder='Enter your name...'
-                                value={values.name}
-                                onChange={handleChange}
-                            />
-                            <Controls.Input 
-                                text='Email'
-                                name='email'
-                                placeholder='Enter your email...'
-                                value={values.email}
-                                onChange={handleChange}
-                            />
-                        </RowDiv>
-                        <h4>Select Beautician</h4>
-                        <RowDiv>{stylistSelect}</RowDiv>
-                        <Controls.FormButton type='submit' text='Confirm Booking' primary/>
-                        <Controls.FormButton type='reset' text='Reset Form'  />
-                        {isOpen && 
-                        <Popup 
-                            content={<>
-                                <p>Your appointment with {popupValues.beautician} is confirmed for {popupValues.date.toDateString()} at {popupValues.time}!</p>
-                            </>}
-                            onClick={togglePopup}
-                        />
-                        }
-                    </FormContainer>
-                </Form>
-            </Div>
-        </Container>
-    )
-}
+const ColumnDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`

@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker';
 import { useState } from 'react';
 import styles from '../styles/staff.module.css';
 import Popup from '../components/Popup';
-
+import ValidationMsg from '../components/ValidationMsg';
 
 const initialValues = {
     date: new Date(),
@@ -90,10 +90,30 @@ const FormContainer = styled.div`
     width: 100%
 `
 
+const ColumnDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 export default function Spa() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
-    const [popupValues, setPopupValues] = useState(null)
+    const [popupValues, setPopupValues] = useState(null);
+    const [error, setError] = useState("");
+    const [invalid, setInvalid] = useState(false);
+
+    const validate = () => {
+        let text = {};
+
+        text.name = values.name.length === 0 ? "This field cannot be empty." : "";
+        text.email = values.email.length === 0 ? "This field cannot be empty." : "";
+
+        setError({
+            ...text
+        })
+        
+        return Object.values(text).every(x => x === '')
+    }
 
     const {
         handleChange,
@@ -101,7 +121,6 @@ export default function Spa() {
         setValues,
         resetForm
     } = useForm(initialValues)
-    console.log(values)
 
     const convertToDefaultPara = (name, value) => ({
         target: {   
@@ -135,9 +154,15 @@ export default function Spa() {
     const handleSubmit = e => {
         e.preventDefault();
         
-        salonServices.saveAppointment(values);
-        togglePopup();
-        resetForm()
+        if(validate()) {
+            salonServices.saveAppointment(values);
+            togglePopup();
+            resetForm();
+            setInvalid(false);
+        }
+        else {
+            setInvalid(true);
+        }
     }
     return (
         <Container>
@@ -167,20 +192,26 @@ export default function Spa() {
                         ))}
                 </TimesContainer>
                 <RowDiv>
-                    <Controls.Input 
-                        text='Name'
-                        name='name'
-                        placeholder='Enter your name...'
-                        value={values.name}
-                        onChange={handleChange}
-                    />
-                    <Controls.Input 
-                        text='Email'
-                        name='email'
-                        placeholder='Enter your email...'
-                        value={values.email}
-                        onChange={handleChange}
-                    />
+                    <ColumnDiv>
+                        <Controls.Input 
+                            text='Name'
+                            name='name'
+                            placeholder='Enter your name...'
+                            value={values.name}
+                            onChange={handleChange}
+                        />
+                        { invalid && error.name ? <ValidationMsg error={error.name} /> : "" }
+                    </ColumnDiv>
+                    <ColumnDiv>
+                        <Controls.Input 
+                            text='Email'
+                            name='email'
+                            placeholder='Enter your email...'
+                            value={values.email}
+                            onChange={handleChange}
+                        />
+                        { invalid && error.email ? <ValidationMsg error={error.email} /> : ""}
+                    </ColumnDiv>
                 </RowDiv>
                 <h4>Select Beautician</h4>
                 <RowDiv>{stylistSelect}</RowDiv>

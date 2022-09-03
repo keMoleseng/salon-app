@@ -1,5 +1,24 @@
 import styled from 'styled-components';
 
+export default function Input(props) {
+    const {text, name, placeholder, type, value, onChange} = props;
+    
+    return(
+        <Span>
+            <label>{text}</label>
+            <UserInput
+                type={type}
+                name={name}
+                value={value}
+                placeholder={placeholder}
+                onChange={onChange}
+                form="appointments"
+                required
+            />
+        </Span>
+    )
+} 
+
 const Span = styled.span`
     display: flex;
     flex-direction: column;
@@ -25,22 +44,3 @@ const UserInput = styled.input`
         align-self: center;
     }  
 `
-
-export default function Input(props) {
-    const {text, name, placeholder, type, value, onChange} = props;
-    
-    return(
-        <Span>
-            <label>{text}</label>
-            <UserInput
-                type={type}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                onChange={onChange}
-                form="appointments"
-                required
-            />
-        </Span>
-    )
-} 
