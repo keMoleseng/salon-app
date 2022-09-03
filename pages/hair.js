@@ -95,7 +95,6 @@ export default function Hair() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
     const [popupValues, setPopupValues] = useState(null);
-    // const [appointmentAvail, setAppointmentAvail] = useState(salonServices.checkAvailTime())
 
     const {
         handleChange,

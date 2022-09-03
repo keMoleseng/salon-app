@@ -43,7 +43,7 @@ const RowDiv = styled.div`
     flex-direction: row;
     justify-content: space-around;
     width: 95%;
-    margin-top: 20px
+    margin-top: 20px;
     @media screen and (max-width: 600px) {
         flex-direction: column;
     }
