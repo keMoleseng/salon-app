@@ -84,11 +84,12 @@
 
    .hero_image {
         flex-direction: column;
+        width: 100%;
    }
 
    .intro_img {
-        width: 75vh;
-        height: 75vh;
+        width: 480px;
+        height: 385px;
         position: relative; 
     }
 
