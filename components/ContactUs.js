@@ -1,6 +1,7 @@
 import styles from '../styles/contact.module.css';
 import React, {useRef} from 'react';
 import emailjs from '@emailjs/browser';
+import Footer from './Footer';
 
 export default function ContactUs(){
     const form = useRef();
@@ -73,7 +74,8 @@ export default function ContactUs(){
                     </form>
                 </span>
             </span>
-            <span className={styles.footer_closing}> 2022 <i className='fa-solid fa-copyright' /> <a className={styles.linkedIn} href='https://www.linkedin.com/in/moleseng-mokgosi-ab506b11b/' >Moleseng Mokgosi</a>. All Rights Reserved.</span>
+            <Footer />
+            {/* <span className={styles.footer_closing}> 2022 <i className='fa-solid fa-copyright' /> <a className={styles.linkedIn} href='https://www.linkedin.com/in/moleseng-mokgosi-ab506b11b/' >Moleseng Mokgosi</a>. All Rights Reserved.</span> */}
         </div>
     )
 }
