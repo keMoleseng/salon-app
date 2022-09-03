@@ -38,10 +38,10 @@ export default function ContactUs(){
                     <p className={styles.address_body}>0083</p>
                     <p className={styles.address_body}>SOUTH AFRICA</p>
                     <span className={styles.brands_container}>
-                        <i className= {`fa-brands fa-pinterest ${styles.brand}`} />
-                        <i className={`fa-brands fa-instagram ${styles.brand}`} />
-                        <i className={`fa-brands fa-facebook ${styles.brand}`} />
-                        <i className={`fa-brands fa-twitter ${styles.brand}`} />
+                        <a href='https://pinterest.com/' target='_blank'><i className= {`fa-brands fa-pinterest ${styles.brand}`} ></i></a>
+                        <a href='https://instagram.com/' target='_blank'><i className={`fa-brands fa-instagram ${styles.brand}`} /></a>
+                        <a href='https://facebook.com/' target='_blank'><i className={`fa-brands fa-facebook ${styles.brand}`} /></a>
+                        <a href='https://twitter.com/' target='_blank'><i className={`fa-brands fa-twitter ${styles.brand}`} /></a>
                     </span>
                 </span>
                 <span className={styles.form_container}>
@@ -75,7 +75,6 @@ export default function ContactUs(){
                 </span>
             </span>
             <Footer />
-            {/* <span className={styles.footer_closing}> 2022 <i className='fa-solid fa-copyright' /> <a className={styles.linkedIn} href='https://www.linkedin.com/in/moleseng-mokgosi-ab506b11b/' >Moleseng Mokgosi</a>. All Rights Reserved.</span> */}
         </div>
     )
 }
