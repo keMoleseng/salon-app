@@ -88,8 +88,9 @@
    }
 
    .intro_img {
-        width: 480px;
-        height: 385px;
+        object-fit: contain;
+        width:450px;
+        height: 250px;
         position: relative; 
     }
 
