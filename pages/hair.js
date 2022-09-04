@@ -27,6 +27,8 @@ const staff = {
 
 const times = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
 
+let regex = new RegExp('@');
+
 export default function Hair() {
     const [startDate, setStartDate] = useState(new Date());
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +40,9 @@ export default function Hair() {
         let text = {};
 
         text.name = values.name.length === 0 ? "This field cannot be empty." : "";
-        text.email = values.email.length === 0 ? "This field cannot be empty." : "";
+        text.email = values.email.length > 0 && regex.test(values.email) ?  "" : "This field is either invalid or empty.";
+        text.time = values.time.length === 0 ? "Please select a time." : "";
+        text.beautician = values.beautician.length === 0 ? "Please select a beautician." : "";
 
         setError({
             ...text
@@ -117,13 +121,16 @@ export default function Hair() {
                         <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); setValues({...values, date: date})}}  placeholder='Select date' value={values.date}/>
                        
                         <h4>AVAILABLE SLOT</h4>
-                        <TimesContainer>
-                            {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
-                                <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
-                                    {time}
-                                </TimesSpan>
-                            ))}
-                        </TimesContainer>
+                        <ColumnDiv>
+                            <TimesContainer>
+                                {times.filter(x => salonServices.checkAvailTime(startDate, x, values.treatment)).map(time => (
+                                    <TimesSpan name='time' value={values.time} onClick={e => handleChange(convertToDefaultPara('time', e.target.innerHTML))}>
+                                        {time}
+                                    </TimesSpan>
+                                ))}
+                            </TimesContainer>
+                            { invalid && error.time ? <ValidationMsg error={error.time} /> : "" }
+                        </ColumnDiv>
                         <RowDiv>
                             <ColumnDiv>
                                 <Controls.Input 
@@ -147,7 +154,10 @@ export default function Hair() {
                             </ColumnDiv>
                         </RowDiv>
                         <h4>Select Beautician</h4>
-                        <RowDiv>{stylistSelect}</RowDiv>
+                        <ColumnDiv>
+                            <RowDiv>{stylistSelect}</RowDiv>
+                            { invalid && error.beautician ? <ValidationMsg error={error.beautician} /> : ""}
+                        </ColumnDiv>
                         <Controls.FormButton type='submit' text='Confirm Booking' primary/>
                         <Controls.FormButton type='reset' text='Reset Form'  />
                         {isOpen && 

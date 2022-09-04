@@ -19,6 +19,7 @@ const Container = styled.div`
     align-items: center;
     margin-top: 5px;
     padding: 0 10px;
+    width: fit-content;
     @media screen and (max-width: 600px) {
         width: fit-content;
         align-self: center;
